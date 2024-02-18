@@ -3,7 +3,9 @@
 import 'dart:async';
 
 import 'package:assignment2/component/widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:sendbird_chat_sdk/sendbird_chat_sdk.dart';
@@ -106,18 +108,6 @@ class OpenChannelPageState extends State<OpenChannelPage> {
         return GestureDetector(
           onDoubleTap: () async {
             final openChannel = await OpenChannel.getChannel(channelUrl);
-            Get.toNamed(
-                    '/message/update/${openChannel.channelType.toString()}/${openChannel.channelUrl}/${message.messageId}')
-                ?.then((message) async {
-              if (message != null) {
-                for (int index = 0; index < messageList.length; index++) {
-                  if (messageList[index].messageId == message.messageId) {
-                    setState(() => messageList[index] = message);
-                    break;
-                  }
-                }
-              }
-            });
           },
           onLongPress: () async {
             final openChannel = await OpenChannel.getChannel(channelUrl);

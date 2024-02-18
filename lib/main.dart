@@ -2,18 +2,16 @@
 
 import 'dart:async';
 
-import 'package:assignment2/notifications/local_notifications_manager.dart';
-import 'package:assignment2/notifications/push_manager.dart';
-import 'package:assignment2/page/channel/open_channel/open_channel_page.dart';
-import 'package:assignment2/page/channel/open_channel/open_channel_update_page.dart';
-import 'package:assignment2/page/login_page.dart';
-import 'package:assignment2/page/main_page.dart';
-import 'package:assignment2/utils/app_prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-
+import 'package:sendbird_chat_sample/notifications/local_notifications_manager.dart';
+import 'package:sendbird_chat_sample/notifications/push_manager.dart';
+import 'package:sendbird_chat_sample/page/channel/open_channel/open_channel_page.dart';
+import 'package:sendbird_chat_sample/page/login_page.dart';
+import 'package:sendbird_chat_sample/page/main_page.dart';
+import 'package:sendbird_chat_sample/utils/app_prefs.dart';
 
 const sampleVersion = '4.2.0';
 const yourAppId = '728E8736-5D0C-47CE-B934-E39B656900F3';
@@ -69,12 +67,6 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/main',
           page: () => const MainPage(),
-        ),
-  
-      
-        GetPage(
-          name: '/open_channel/update/:channel_url',
-          page: () => const OpenChannelUpdatePage(),
         ),
         GetPage(
           name: '/open_channel/:channel_url',

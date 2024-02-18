@@ -20,7 +20,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final textEditingController = TextEditingController();
+  final textEditingController =
+      TextEditingController(text: 'BC823AD1-FBEA-4F08-8F41-CF0D9D280FBF');
 
   bool? isLoginUserId;
   bool useCollectionCaching = AppPrefs.defaultUseCollectionCaching;
@@ -90,8 +91,7 @@ class _LoginPageState extends State<LoginPage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-                child: Widgets.pageTitle('Sendbird Chat ')),
+            Expanded(child: Widgets.pageTitle('Sendbird Chat ')),
             const Text('', style: TextStyle(fontSize: 12.0)),
           ],
         ),
@@ -117,6 +117,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(width: 8.0),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink,
+                    
+                    textStyle: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold)),
                 onPressed: () async {
                   if (textEditingController.value.text.isEmpty) return;
                   _login(textEditingController.value.text);
